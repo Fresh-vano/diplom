@@ -20,7 +20,7 @@ namespace DataParser.DTOs
 		public string ImageUrl { get; set; }
 
 		[JsonProperty("country_id")]
-		public int Country { get; set; }
+		public int? Country { get; set; }
 
 		[JsonProperty("stages")]
 		public List<StageDto> Stages { get; set; }

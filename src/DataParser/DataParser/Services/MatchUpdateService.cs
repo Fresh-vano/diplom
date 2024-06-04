@@ -14,11 +14,13 @@ namespace DataParser.Services
 		private readonly IMapper _mapper;
 		private readonly IApplicationDbContext _dbContext;
 		private int count = 100;
+		private readonly PlayerStatsService _playerStats;
 
 		public MatchUpdateService(IMapper mapper, IApplicationDbContext dbContext)
 		{
 			_mapper = mapper;
 			_dbContext = dbContext;
+			_playerStats = new PlayerStatsService(mapper, dbContext);
 		}
 
 		public async Task UpdateMatchAsync()
@@ -93,17 +95,17 @@ namespace DataParser.Services
 				var map = _mapper.Map<Map>(mapDto);
 
 				_dbContext.Maps.Add(map);
+				_dbContext.SaveChanges();
+			
+				await _playerStats.AddPlayerStatsAsync(map);
 			}
-			_dbContext.SaveChanges();
-
-
 		}
 
 		public async Task UpdateMatchMinFinishedAsync()
 		{
 			try
 			{
-				for (offset = 0; offset < count; offset += limit)
+				for (offset = 0; offset < 100; offset += limit) // TODO: убрать 100
 				{
 					await Console.Out.WriteLineAsync($"========================================           Match offset: {offset}");
 
@@ -130,6 +132,7 @@ namespace DataParser.Services
 						{
 							match.CreatedAt = DateTime.UtcNow;
 							match.Discipline = Enums.DisciplineEnum.CS2;
+
 							_dbContext.Matches.Add(match);
 							_dbContext.SaveChanges();
 						}

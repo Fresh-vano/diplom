@@ -11,7 +11,7 @@ namespace DataParser.Models
 		[Key]
 		public int Id { get; set; }
 
-		public string Slug { get; set; } = string.Empty;
+		public string Slug { get; set; }
 
 		[ForeignKey("Team1")]
 		public int Team1Id { get; set; }

@@ -1,64 +1,89 @@
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {1}Анализ предметной области}{5}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Описание предметной области}{5}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Классификация киберспортивных дисциплин}{6}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Компьютерная игра Counter Strike 2}{7}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Сбор, хранение и анализ статистических данных игры Counter Strike 2}{9}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Техническое задание}{12}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Основание для разработки}{12}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Назначение разработки}{12}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Требования к веб-платформе}{12}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Требования к данным веб-платформы}{12}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Функциональные требования к веб-платформе}{14}{subsubsection.2.3.2}%
-\contentsline {paragraph}{\numberline {2.3.2.1}Вариант использования «Просмотр информации игрока»}{15}{paragraph.2.3.2.1}%
-\contentsline {paragraph}{\numberline {2.3.2.2}Вариант использования «Просмотр рейтинга игроков»}{16}{paragraph.2.3.2.2}%
-\contentsline {paragraph}{\numberline {2.3.2.3}Вариант использования «Добавление игрока для сравнения»}{16}{paragraph.2.3.2.3}%
-\contentsline {paragraph}{\numberline {2.3.2.4}Вариант использования «Сравнение статистики игроков»}{17}{paragraph.2.3.2.4}%
-\contentsline {paragraph}{\numberline {2.3.2.5}Вариант использования «Просмотр информации о турнире»}{17}{paragraph.2.3.2.5}%
-\contentsline {paragraph}{\numberline {2.3.2.6}Вариант использования «Просмотр информации о матче»}{18}{paragraph.2.3.2.6}%
-\contentsline {paragraph}{\numberline {2.3.2.7}Вариант использования «Просмотр статистики матча»}{18}{paragraph.2.3.2.7}%
-\contentsline {paragraph}{\numberline {2.3.2.8}Вариант использования «Отображение прогноза на матч»}{18}{paragraph.2.3.2.8}%
-\contentsline {paragraph}{\numberline {2.3.2.9}Вариант использования «Просмотр информации команды»}{19}{paragraph.2.3.2.9}%
-\contentsline {paragraph}{\numberline {2.3.2.10}Вариант использования «Просмотр рейтинга команд»}{19}{paragraph.2.3.2.10}%
-\contentsline {paragraph}{\numberline {2.3.2.11}Вариант использования «Добавление команды для сравнения»}{20}{paragraph.2.3.2.11}%
-\contentsline {paragraph}{\numberline {2.3.2.12}Вариант использования «Сравнение статистики команд»}{20}{paragraph.2.3.2.12}%
-\contentsline {subsubsection}{\numberline {2.3.3}Требования пользователя к интерфейсу веб-платформы}{20}{subsubsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.4}Нефункциональные требования к программной системе}{22}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Требования к архитектуре}{22}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Требования к надежности}{22}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Требования к программному обеспечению}{22}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Требования к аппаратному обеспечению}{23}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Требования к оформлению документации}{23}{subsubsection.2.4.5}%
-\contentsline {section}{\numberline {3}Технический проект}{24}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Общие сведения о программной системе}{24}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Проектирование архитектуры программной системы}{25}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Выбор архитектурного стиля и паттернов проектирования}{25}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Структура базы данных}{27}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Описание микросервисов}{27}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Планирование докеризации и оркестрации сервисов}{28}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Описание REST API микросервисов}{29}{subsubsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.3}Обоснование выбора технологий проектирования и программных средств}{33}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Выбор используемых технологий и языков программирования}{33}{subsubsection.3.3.1}%
-\contentsline {paragraph}{\numberline {3.3.1.1}API Gateway}{33}{paragraph.3.3.1.1}%
-\contentsline {paragraph}{\numberline {3.3.1.2}Сервис поиска информации о турнирах}{33}{paragraph.3.3.1.2}%
-\contentsline {paragraph}{\numberline {3.3.1.3}Сервис поиска информации о турнирах}{33}{paragraph.3.3.1.3}%
-\contentsline {paragraph}{\numberline {3.3.1.4}Сервис предоставления данных}{34}{paragraph.3.3.1.4}%
-\contentsline {paragraph}{\numberline {3.3.1.5}Сервис поиска}{34}{paragraph.3.3.1.5}%
-\contentsline {paragraph}{\numberline {3.3.1.6}Сервис прогнозирования}{34}{paragraph.3.3.1.6}%
-\contentsline {paragraph}{\numberline {3.3.1.7}Брокер сообщений (RabbitMQ)}{34}{paragraph.3.3.1.7}%
-\contentsline {paragraph}{\numberline {3.3.1.8}Prometheus}{35}{paragraph.3.3.1.8}%
-\contentsline {paragraph}{\numberline {3.3.1.9}React}{35}{paragraph.3.3.1.9}%
-\contentsline {subsubsection}{\numberline {3.3.2}Выбор программного обеспечения}{37}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Docker}{37}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Redis}{39}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}Kubernetes}{40}{subsubsection.3.3.5}%
-\contentsline {subsubsection}{\numberline {3.3.6}RabbitMQ}{40}{subsubsection.3.3.6}%
-\contentsline {subsubsection}{\numberline {3.3.7}Prometheus}{42}{subsubsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.4}Проектирование пользовательского интерфейса программной системы}{42}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Макеты пользовательского интерфейса}{42}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Компоненты пользовательского интерфейса}{45}{subsubsection.3.4.2}%
-\contentsline {paragraph}{\numberline {3.4.2.1}MiddleContent}{45}{paragraph.3.4.2.1}%
-\contentsline {paragraph}{\numberline {3.4.2.2}MapStatsTable}{46}{paragraph.3.4.2.2}%
-\contentsline {paragraph}{\numberline {3.4.2.3}PlayerStats}{47}{paragraph.3.4.2.3}%
-\contentsline {paragraph}{\numberline {3.4.2.4}MapPulStatsTable}{48}{paragraph.3.4.2.4}%
-\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{50}{section*.15}%
+\babel@toc {english}{}\relax 
+\babel@toc {russian}{}\relax 
+\contentsline {section}{ВВЕДЕНИЕ}{13}{section*.1}%
+\contentsline {section}{\numberline {1}Анализ предметной области}{15}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Описание предметной области}{15}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Классификация киберспортивных дисциплин}{16}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Компьютерная игра Counter Strike 2}{17}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Сбор, хранение и анализ статистических данных игры Counter Strike 2}{19}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Техническое задание}{22}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Основание для разработки}{22}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Назначение разработки}{22}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Требования к веб-платформе}{22}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Требования к данным веб-платформы}{22}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Функциональные требования к веб-платформе}{24}{subsubsection.2.3.2}%
+\contentsline {paragraph}{\numberline {2.3.2.1}Вариант использования «Просмотр информации игрока»}{25}{paragraph.2.3.2.1}%
+\contentsline {paragraph}{\numberline {2.3.2.2}Вариант использования «Просмотр рейтинга игроков»}{26}{paragraph.2.3.2.2}%
+\contentsline {paragraph}{\numberline {2.3.2.3}Вариант использования «Добавление игрока для сравнения»}{26}{paragraph.2.3.2.3}%
+\contentsline {paragraph}{\numberline {2.3.2.4}Вариант использования «Сравнение статистики игроков»}{27}{paragraph.2.3.2.4}%
+\contentsline {paragraph}{\numberline {2.3.2.5}Вариант использования «Просмотр информации о турнире»}{27}{paragraph.2.3.2.5}%
+\contentsline {paragraph}{\numberline {2.3.2.6}Вариант использования «Просмотр информации о матче»}{28}{paragraph.2.3.2.6}%
+\contentsline {paragraph}{\numberline {2.3.2.7}Вариант использования «Просмотр статистики матча»}{28}{paragraph.2.3.2.7}%
+\contentsline {paragraph}{\numberline {2.3.2.8}Вариант использования «Отображение прогноза на матч»}{28}{paragraph.2.3.2.8}%
+\contentsline {paragraph}{\numberline {2.3.2.9}Вариант использования «Просмотр информации команды»}{29}{paragraph.2.3.2.9}%
+\contentsline {paragraph}{\numberline {2.3.2.10}Вариант использования «Просмотр рейтинга команд»}{29}{paragraph.2.3.2.10}%
+\contentsline {paragraph}{\numberline {2.3.2.11}Вариант использования «Добавление команды для сравнения»}{30}{paragraph.2.3.2.11}%
+\contentsline {paragraph}{\numberline {2.3.2.12}Вариант использования «Сравнение статистики команд»}{30}{paragraph.2.3.2.12}%
+\contentsline {subsubsection}{\numberline {2.3.3}Требования пользователя к интерфейсу веб-платформы}{30}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Нефункциональные требования к программной системе}{32}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Требования к архитектуре}{32}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Требования к надежности}{32}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Требования к программному обеспечению}{32}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Требования к аппаратному обеспечению}{33}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Требования к оформлению документации}{33}{subsubsection.2.4.5}%
+\contentsline {section}{\numberline {3}Технический проект}{34}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Общие сведения о программной системе}{34}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Проектирование архитектуры программной системы}{35}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Выбор архитектурного стиля и паттернов проектирования}{35}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Структура базы данных}{37}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Описание микросервисов}{37}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Планирование докеризации и оркестрации сервисов}{38}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Описание REST API микросервисов}{39}{subsubsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.3}Обоснование выбора технологий проектирования и программных средств}{43}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Выбор используемых технологий и языков программирования}{43}{subsubsection.3.3.1}%
+\contentsline {paragraph}{\numberline {3.3.1.1}API Gateway}{43}{paragraph.3.3.1.1}%
+\contentsline {paragraph}{\numberline {3.3.1.2}Сервис поиска информации о турнирах}{43}{paragraph.3.3.1.2}%
+\contentsline {paragraph}{\numberline {3.3.1.3}Сервис поиска информации о турнирах}{43}{paragraph.3.3.1.3}%
+\contentsline {paragraph}{\numberline {3.3.1.4}Сервис предоставления данных}{43}{paragraph.3.3.1.4}%
+\contentsline {paragraph}{\numberline {3.3.1.5}Сервис поиска}{44}{paragraph.3.3.1.5}%
+\contentsline {paragraph}{\numberline {3.3.1.6}Сервис прогнозирования}{44}{paragraph.3.3.1.6}%
+\contentsline {paragraph}{\numberline {3.3.1.7}Брокер сообщений (RabbitMQ)}{44}{paragraph.3.3.1.7}%
+\contentsline {paragraph}{\numberline {3.3.1.8}Prometheus}{44}{paragraph.3.3.1.8}%
+\contentsline {paragraph}{\numberline {3.3.1.9}React}{45}{paragraph.3.3.1.9}%
+\contentsline {subsubsection}{\numberline {3.3.2}Выбор программного обеспечения}{46}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Docker}{47}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Redis}{49}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Kubernetes}{50}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}RabbitMQ}{50}{subsubsection.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.7}Prometheus}{52}{subsubsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.4}Проектирование пользовательского интерфейса программной системы}{52}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Макеты пользовательского интерфейса}{52}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Компоненты пользовательского интерфейса}{55}{subsubsection.3.4.2}%
+\contentsline {paragraph}{\numberline {3.4.2.1}MiddleContent}{55}{paragraph.3.4.2.1}%
+\contentsline {paragraph}{\numberline {3.4.2.2}MapStatsTable}{56}{paragraph.3.4.2.2}%
+\contentsline {paragraph}{\numberline {3.4.2.3}PlayerStats}{57}{paragraph.3.4.2.3}%
+\contentsline {paragraph}{\numberline {3.4.2.4}MapPulStatsTable}{58}{paragraph.3.4.2.4}%
+\contentsline {section}{\numberline {4}Рабочий проект}{60}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Описание сущностей веб-платформы}{60}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Описание сущностей базы данных}{60}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Описание внутренних сущностей сервиса анализа .dem файла}{73}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Описание внутренних сущностей сервиса поиска информации о турнирах}{77}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Описание внутренних сущностей сервиса поиска}{87}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Спецификация классов веб-платформы}{89}{subsubsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.6}Спецификация классов сервиса анализа .dem файла}{89}{subsubsection.4.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.7}Спецификация классов сервиса поиска информации о турнирах}{105}{subsubsection.4.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.8}Спецификация классов сервиса поиска}{115}{subsubsection.4.1.8}%
+\contentsline {subsubsection}{\numberline {4.1.9}Спецификация классов сервиса прогнозирования}{116}{subsubsection.4.1.9}%
+\contentsline {subsection}{\numberline {4.2}Настройка взаимодействия сервисов}{118}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Тестирование веб-платформы}{120}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Unit тестирование сервисов}{120}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Описание unit тестов сервиса анализа .dem файла}{120}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Описание unit тестов сервиса предоставления данных}{121}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Описание unit тестов сервиса поиска информации о турнирах}{122}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Интеграционное тестирование веб-платформы}{123}{subsubsection.4.3.5}%
+\contentsline {section}{ЗАКЛЮЧЕНИЕ}{125}{section*.21}%
+\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{127}{section*.22}%
+\contentsline {section}{ПРИЛОЖЕНИЕ А \relax \ignorespaces Представление графического материала}{129}{section*.23}%
+\contentsline {section}{ПРИЛОЖЕНИЕ Б \relax \ignorespaces Фрагменты исходного кода программы}{136}{section*.30}%
+\contentsline {section}{На отдельных листах (CD-RW в прикрепленном конверте)}{161}{section*.31}%

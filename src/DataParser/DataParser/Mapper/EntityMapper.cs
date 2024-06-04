@@ -2,6 +2,7 @@
 using DataParser.DTOs;
 using DataParser.Enums;
 using DataParser.Models;
+using Newtonsoft.Json;
 
 namespace DataParser.Mapper
 {
@@ -36,12 +37,20 @@ namespace DataParser.Mapper
 				.ForMember(dest => dest.Teams, opt => opt.MapFrom<TeamIdsResolver>());
 
 			CreateMap<MatchMinDto, Match>()
+				.ForMember(dest => dest.TournamentID, opt => opt.MapFrom(src => src.NestedTournament.Id))
 				.ForMember(dest => dest.Status, opt => opt.MapFrom<MatchStatusResolver>())
 				.ForMember(dest => dest.ParsedStatus, opt => opt.MapFrom<ParsedStatusResolver>());
 
 			CreateMap<MatchFullDto, Match>();
 
 			CreateMap<MapDto, Map>();
+
+			CreateMap<StatsDto, PlayerStats>()
+			.ForMember(dest => dest.PlayerId, opt => opt.MapFrom(src => src.PlayerId.Id))
+			.ForMember(dest => dest.TeamId, opt => opt.MapFrom(src => src.TeamId.Id))
+			.ForMember(dest => dest.MapId, opt => opt.MapFrom(src => src.MapId))
+			.ForMember(dest => dest.CumulativeRoundDamages, opt => opt.MapFrom(src => JsonConvert.SerializeObject(src.CumulativeRoundDamages)))
+			.ForMember(dest => dest.Multikills, opt => opt.MapFrom(src => JsonConvert.SerializeObject(src.Multikills)));
 		}
 	}
 }

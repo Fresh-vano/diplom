@@ -1,0 +1,123 @@
+version: '3.8'
+
+services:
+  api_gateway:
+    build:
+      context: ./DataParser/APIGateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db; Port=5432; Database=CS2; Username=postgres; Password=11111111
+
+  data_api:
+    build:
+      context: ./DataParser/DataAPI
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db; Port=5432; Database=CS2; Username=postgres; Password=11111111
+
+  predict_service:
+    build:
+      context: ./CS2Predict
+    ports:
+      - "5002:5002"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:11111111@db:5432/CS2
+
+  data_search:
+    build:
+      context: ./DataParser/DataSearch
+    ports:
+      - "5003:5003"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db; Port=5432; Database=CS2; Username=postgres; Password=11111111
+
+  dem_parser:
+    build:
+      context: ./CS2Parser
+    ports:
+      - "5004:5004"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db; Port=5432; Database=CS2; Username=postgres; Password=11111111
+
+  tournament_service:
+    build:
+      context: ./DataParser/DataParser
+    ports:
+      - "5005:5005"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db; Port=5432; Database=CS2; Username=postgres; Password=11111111
+
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api_gateway
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: CS2
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 11111111
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus_data:/prometheus
+
+volumes:
+  pgdata:
+  prometheus_data:

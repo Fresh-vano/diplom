@@ -16,6 +16,7 @@ namespace DataParser.Data
 		DbSet<TeamName> TeamNames { get; }
 		DbSet<Tournament> Tournaments { get; }
 		DbSet<Country> Countries { get; }
+		DbSet<PlayerStats> PlayerStats { get; }
 
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
 		int SaveChanges();

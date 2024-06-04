@@ -27,11 +27,11 @@ namespace DataParser.Services
 			await UpdateTournamentMinFinishedAsync();
 			await UpdateTournamentMinUpcomingAsync();
 
-			try
-			{
-				var tournaments = _dbContext.Tournaments.ToList();
+			var tournaments = _dbContext.Tournaments.ToList();
 
-				foreach (var tournament in tournaments)
+			foreach (var tournament in tournaments)
+			{
+				try
 				{
 					await Console.Out.WriteLineAsync($"========================================           Tournament offset: {tournament.Name}");
 
@@ -75,24 +75,24 @@ namespace DataParser.Services
 
 					await Task.Delay(TimeSpan.FromSeconds(5));
 				}
-			}
-			catch (HttpRequestException e)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{e.Message} ");
-			}
-			catch (Exception ex)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				catch (HttpRequestException e)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{e.Message} ");
+				}
+				catch (Exception ex)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				}
 			}
 		}
 
 		public async Task UpdateTournamentMinFinishedAsync()
 		{
-			try
+			for (offset = 0; offset < count; offset += limit)
 			{
-				for (offset = 0; offset < count; offset += limit)
+				try
 				{
 					await Console.Out.WriteLineAsync($"========================================           Tournament offset: {offset}");
 
@@ -126,24 +126,24 @@ namespace DataParser.Services
 
 					await Task.Delay(TimeSpan.FromSeconds(4));
 				}
-			}
-			catch (HttpRequestException e)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{e.Message} ");
-			}
-			catch (Exception ex)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				catch (HttpRequestException e)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{e.Message} ");
+				}
+				catch (Exception ex)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				}
 			}
 		}
 
 		public async Task UpdateTournamentMinUpcomingAsync()
 		{
-			try
+			for (offset = 0; offset < count; offset += limit)
 			{
-				for (offset = 0; offset < count; offset += limit)
+				try
 				{
 					await Console.Out.WriteLineAsync($"========================================           Tournament offset: {offset}");
 
@@ -177,16 +177,16 @@ namespace DataParser.Services
 
 					await Task.Delay(TimeSpan.FromSeconds(4));
 				}
-			}
-			catch (HttpRequestException e)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{e.Message} ");
-			}
-			catch (Exception ex)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				catch (HttpRequestException e)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{e.Message} ");
+				}
+				catch (Exception ex)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				}
 			}
 		}
 	}

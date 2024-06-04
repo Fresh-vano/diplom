@@ -128,10 +128,7 @@ Redis будет использоваться как вспомогательн�
 	\continuecaption{Продолжение таблицы \ref{searchservice:table}} \hline
 	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
 	\endhead
-	GET api/search/player & Поиск игроков & \{"query": "string"\} & \{"results": [\{"playerId": "int", "name": "string"\}] \} \\ \hline
-	GET api/search/team & Поиск команд & \{"query": "string"\} & \{"results": [\{"teamId": "int", "name": "string"\}] \} \\ \hline
-	GET api/search/
-	tournament & Поиск турниров & \{"query": "string" \} & \{"results": [\{"tournamentId": "int", "name": "string"\}] \} \\ \hline
+	GET api/search/ & Поиск по запросу & \{"query": "string"\} & \{"results": [\{"Players": [object]\}, \{"Teams": [object]\}, \{"Tournaments": [object]\}] \} \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
@@ -143,7 +140,7 @@ Redis будет использоваться как вспомогательн�
 	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
 	\endhead
 	POST api/prediction
-	/predict & Генерация прогноза на матч & \{"matchId": "int"\} & \{"prediction": \{"winProbability": "float"\, "confidence": "float"\} \} \\ \hline
+	/predict & Генерация прогноза на матч & \{"matchId": "int"\} & \{"prediction": \{"winProbability": "float"\} \} \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}

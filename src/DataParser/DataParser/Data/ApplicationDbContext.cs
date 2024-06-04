@@ -32,6 +32,8 @@ namespace DataParser.Data
 
 		public DbSet<Country> Countries { get; set; }
 
+		public DbSet<PlayerStats> PlayerStats { get; set; }
+
 		DbSet<Map> IApplicationDbContext.Maps => Maps;
 		DbSet<Match> IApplicationDbContext.Matches => Matches;
 		DbSet<Player> IApplicationDbContext.Players => Players;
@@ -44,6 +46,7 @@ namespace DataParser.Data
 		DbSet<TeamName> IApplicationDbContext.TeamNames => TeamNames;
 		DbSet<Tournament> IApplicationDbContext.Tournaments => Tournaments;
 		DbSet<Country> IApplicationDbContext.Countries => Countries;
+		DbSet<PlayerStats> IApplicationDbContext.PlayerStats => PlayerStats;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

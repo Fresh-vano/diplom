@@ -24,9 +24,9 @@ namespace DataParser.Services
 
 		public async Task UpdateTeamsAsync()
 		{
-			try
+			for (offset = 0; offset < count; offset += limit)
 			{
-				for (offset = 0; offset < count; offset += limit)
+				try
 				{
 					await Console.Out.WriteLineAsync($"========================================           {offset}");
 
@@ -121,19 +121,19 @@ namespace DataParser.Services
 
 					await Task.Delay(TimeSpan.FromSeconds(4));
 				}
+				catch (HttpRequestException e)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{e.Message} ");
+				}
+				catch (Exception ex)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				}
+			}
 
-				await UpdateTeamNameAsync();
-			}
-			catch (HttpRequestException e)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{e.Message} ");
-			}
-			catch (Exception ex)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
-			}
+			await UpdateTeamNameAsync();
 		}
 
 
@@ -150,18 +150,18 @@ namespace DataParser.Services
 
 		public async Task UpdateTeamNameAsync()
 		{
-			try
-			{
-				var teams = _dbContext.Teams.ToList();
+			var teams = _dbContext.Teams.ToList();
 
-				foreach (Team team in teams)
+			foreach (Team team in teams)
+			{
+				try
 				{
 					await Console.Out.WriteLineAsync($"========================================           TEAM {team.Name}");
 
 					var url = $"https://api.bo3.gg/api/v1/teams/{team.Slug}";
 
 					HttpClientHelper.ConfigureClient(client, $"https://bo3.gg/ru/teams/{team.Slug}");
-						
+
 					var response = await client.GetAsync(url);
 					response.EnsureSuccessStatusCode();
 					var responseBody = await response.Content.ReadAsStringAsync();
@@ -182,16 +182,16 @@ namespace DataParser.Services
 					_dbContext.SaveChanges();
 					await Task.Delay(TimeSpan.FromSeconds(4));
 				}
-			}
-			catch (HttpRequestException e)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{e.Message} ");
-			}
-			catch (Exception ex)
-			{
-				await Console.Out.WriteLineAsync("\nException Caught!");
-				await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				catch (HttpRequestException e)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{e.Message} ");
+				}
+				catch (Exception ex)
+				{
+					await Console.Out.WriteLineAsync("\nException Caught!");
+					await Console.Out.WriteLineAsync($"Message :{ex.Message} ");
+				}
 			}
 		}
 	}

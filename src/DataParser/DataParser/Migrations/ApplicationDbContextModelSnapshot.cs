@@ -558,6 +558,114 @@ namespace DataParser.Migrations
                     b.ToTable("PlayerResultMetric");
                 });
 
+            modelBuilder.Entity("DataParser.Models.PlayerStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdditionalValue")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Adr")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Assists")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Clutches")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("CumulativeRoundDamages")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Damage")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Death")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("FirstDeath")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("FirstKills")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GotDamage")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Headshots")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Hits")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Kast")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Kills")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MapId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MoneySave")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MoneySpent")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Multikills")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("PistolsValue")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("PlayerRating")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Shots")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TotalEquipmentValue")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TradeDeath")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TradeKills")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UtilityValue")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("WeaponsValue")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Win")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MapId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("PlayerStats");
+                });
+
             modelBuilder.Entity("DataParser.Models.Round", b =>
                 {
                     b.Property<int>("Id")
@@ -1235,6 +1343,33 @@ namespace DataParser.Migrations
                     b.Navigation("Map");
 
                     b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("DataParser.Models.PlayerStats", b =>
+                {
+                    b.HasOne("DataParser.Models.Map", "Map")
+                        .WithMany()
+                        .HasForeignKey("MapId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataParser.Models.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataParser.Models.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Map");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Team");
                 });
 
             modelBuilder.Entity("DataParser.Models.Round", b =>

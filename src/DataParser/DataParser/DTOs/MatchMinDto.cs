@@ -12,10 +12,10 @@ namespace DataParser.DTOs
 		public string Slug { get; set; }
 
 		[JsonProperty("team1_id")]
-		public int Team1 { get; set; }
+		public int Team1Id { get; set; }
 
 		[JsonProperty("team2_id")]
-		public int Team2 { get; set; }
+		public int Team2Id { get; set; }
 
 		[JsonProperty("team1_score")]
 		public int Team1Score { get; set; }
@@ -37,5 +37,14 @@ namespace DataParser.DTOs
 
 		[JsonProperty("parsed_status")]
 		public string ParsedStatus { get; set; }
+
+		[JsonProperty("tournament")]
+		public NestedTournamentDto NestedTournament { get; set; }
+
+		public class NestedTournamentDto
+		{
+			[JsonProperty("id")]
+			public int Id { get; set; }
+		}
 	}
 }
