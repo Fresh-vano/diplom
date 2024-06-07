@@ -1,9 +1,9 @@
 \newsection
 \section{Рабочий проект}
-\subsection{Описание сущностей веб-платформы}
-\subsubsection{Описание сущностей базы данных}
+\subsection{Описание программных классов веб-платформы}
+\subsubsection{Описание классов для взаимодействия с базой данных}
 
-В данном разделе представлены основные сущности базы данных, используемые во всей системе для представления различных данных, связанных с киберспортивными турнирами, матчами, командами и игроками. Эти сущности описываются с указанием их атрибутов, типа данных и ключевых свойств.
+В данном разделе представлены основные классы для взаимодействия с базой данных, используемые во всей системе для представления различных данных, связанных с киберспортивными турнирами, матчами, командами и игроками. Эти классы описываются с указанием их атрибутов, типа данных и ключевых свойств.
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства класса BaseModel}\label{table:BaseModel}\\ \hline
@@ -326,7 +326,7 @@
 	Headshots & int & true & Количество выстрелов в голову \\ \hline
 \end{xltabular}
 
-\subsubsection{Описание внутренних сущностей сервиса анализа .dem файла}
+\subsubsection{Описание DTO классов сервиса анализа .dem файла}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства класса KillEvent}\label{table:KillEvent}\\ \hline
@@ -396,39 +396,6 @@
 	Time & float & true & Время события \\ \hline
 \end{xltabular}
 
-\begin{xltabular}{\textwidth}{|X|X|c|X|}
-	\caption{Свойства класса Demo}\label{table:Demo}\\ \hline
-	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:Demo}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Parser & dem.Parser & true & Парсер демо файла \\ \hline
-	Players & []*Models.Player & true & Список игроков \\ \hline
-	Rounds & []Models.Round & true & Список раундов \\ \hline
-	Team1 & *Models.Team & false & Первая команда \\ \hline
-	Team2 & *Models.Team & false & Вторая команда \\ \hline
-	CurrentRound & Models.Round & true & Текущий раунд \\ \hline
-	IsFirstKillOccurred & bool & true & Произошло ли первое убийство \\ \hline
-	IsFirstShotOccured & bool & true & Произошел ли первый выстрел \\ \hline
-	PlayerInClutch1 & *Models.Player & false & Игрок в ключевой момент \\ \hline
-	PlayerInClutch2 & *Models.Player & false & Второй игрок в ключевой момент \\ \hline
-	CurrentClutch & *Models
-	.ClutchEvent & false & Текущий ключевой момент \\ \hline
-	IsMatchStarted & bool & true & Начался ли матч \\ \hline
-	IsFreezetime & bool & true & Период фризтайма \\ \hline
-	KillsThisRound & map[*common
-	.Player]int & true & Количество убийств в этом раунде \\ \hline
-	TimeStartKill & map[*events
-	.PlayerHurt]float64 & true & Время начала убийства \\ \hline
-	Kills & []Models.KillEvent & true & Список убийств \\ \hline
-	PlayersHurted & []*Models
-	.PlayerHurtedEvent & true & Список раненных игроков \\ \hline
-	WeaponFired & []Models
-	.WeaponFireEvent & true & Список выстрелов \\ \hline
-	Date & time.Time & true & Дата игры \\ \hline
-\end{xltabular}
-
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства структуры ClutchEvent}\label{table:ClutchEvent}\\ \hline
 	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
@@ -460,7 +427,7 @@
 	AttackerId & int & true & Идентификатор атакующего игрока \\ \hline
 \end{xltabular}
 
-\subsubsection{Описание внутренних сущностей сервиса поиска информации о турнирах}
+\subsubsection{Описание DTO классов сервиса поиска информации о турнирах}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства класса StageDto}\label{table:StageDto}\\ \hline
@@ -549,29 +516,6 @@
 	MinDto> & true & Список минимальных данных о матчах \\ \hline
 \end{xltabular}
 
-\begin{xltabular}{\textwidth}{|X|X|c|X|}
-	\caption{Свойства класса MatchMinDto}\label{table:MatchMinDto}\\ \hline
-	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:MatchMinDto}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Id & int & true & Уникальный идентификатор матча \\ \hline
-	Slug & string & true & Уникальный слаг матча \\ \hline
-	Team1Id & int & true & Идентификатор первой команды \\ \hline
-	Team2Id & int & true & Идентификатор второй команды \\ \hline
-	Team1Score & int & true & Счет первой команды \\ \hline
-	Team2Score & int & true & Счет второй команды \\ \hline
-	Status & string & true & Статус матча \\ \hline
-	StartDate & DateTimeOffset? & false & Дата начала матча \\ \hline
-	EndDate & DateTimeOffset? & false & Дата окончания матча \\ \hline
-	BOType & int & true & Тип формата "лучший из" (BO1, BO3 и т.д.) \\ \hline
-	ParsedStatus & string & true & Статус парсинга матча \\ \hline
-	NestedTournament & Nested
-	TournamentDto & true & Вложенный объект турнира \\ \hline
-\end{xltabular}
-
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства класса PlayerDto}\label{table:PlayerDto}\\ \hline
 	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
@@ -612,48 +556,6 @@
 	RoundCount & int & true & Количество раундов \\ \hline
 \end{xltabular}
 
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Свойства класса PlayerStatsDto}\label{table:PlayerStatsDto}\\ \hline
-	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:PlayerStatsDto}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Id & long & true & Идентификатор статистики \\ \hline
-	MapId & long & true & Идентификатор карты \\ \hline
-	PlayerId & NestedPlayerDto & true & Идентификатор игрока \\ \hline
-	TeamId & NestedTeamDto & true & Идентификатор команды \\ \hline
-	Win & int & true & Количество побед \\ \hline
-	Kills & int & true & Количество убийств \\ \hline
-	Assists & int & true & Количество ассистов \\ \hline
-	Death & int & true & Количество смертей \\ \hline
-	Adr & double & true & Средний урон за раунд \\ \hline
-	AdditionalValue & int & true & Дополнительное значение \\ \hline
-	Clutches & int & true & Количество клатчей \\ \hline
-	CumulativeRound
-	Damages & Dictionary<int, int> & true & Суммарный урон по раундам \\ \hline
-	Damage & int & true & Урон \\ \hline
-	FirstKills & int & true & Первые убийства \\ \hline
-	FirstDeath & int & true & Первые смерти \\ \hline
-	GotDamage & int & true & Полученный урон \\ \hline
-	Headshots & int & true & Количество хэдшотов \\ \hline
-	Hits & int & true & Количество попаданий \\ \hline
-	Kast & double & true & Коэффициент участия \\ \hline
-	MoneySpent & int & true & Потраченные деньги \\ \hline
-	MoneySave & int & true & Сохраненные деньги \\ \hline
-	Multikills & Dictionary<int, int> & true & Мульт-убийства \\ \hline
-	PistolsValue & int & true & Стоимость пистолетов \\ \hline
-	PlayerRating & double & true & Рейтинг игрока \\ \hline
-	Shots & int & true & Количество выстрелов \\ \hline
-	TotalEquipmen
-	tValue & int & true & Общая стоимость экипировки \\ \hline
-	WeaponsValue & int & true & Стоимость оружия \\ \hline
-	TradeDeath & int & true & Количество обменов смертями \\ \hline
-	TradeKills & int & true & Количество обменов убийствами \\ \hline
-	UtilityValue & int & true & Стоимость всех гранат \\ \hline
-\end{xltabular}
-
 \begin{xltabular}{\textwidth}{|X|X|c|X|}
 	\caption{Свойства класса TeamGeneralDto}\label{table:TeamGeneralDto}\\ \hline
 	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
@@ -665,31 +567,6 @@
 	Total & TotalDto & true & Общая информация \\ \hline
 	TeamRanks & List<Team
 	RankDto> & true & Список рангов команды \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Свойства класса TeamRankDto}\label{table:TeamRankDto}\\ \hline
-	\thead{Свойство} & \thead{Тип} & \thead{Обязательное} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TeamRankDto}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Id & int & true & Идентификатор ранга \\ \hline
-	TeamId & int & true & Идентификатор команды \\ \hline
-	TeamRosterId & int & true & Идентификатор состава команды \\ \hline
-	Current & bool? & false & Текущий ранг \\ \hline
-	TopTier & bool? & false & Топовый ранг \\ \hline
-	SixMonthValue & int? & false & Значение за 6 месяцев \\ \hline
-	SixMonthTourWins & int? & false & Победы за 6 месяцев \\ \hline
-	CurrYearValue & int? & false & Значение за текущий год \\ \hline
-	CurrYearTourWins & int? & false & Победы за текущий год \\ \hline
-	Rank & int & true & Ранг \\ \hline
-	Date & DateTime? & false & Дата \\ \hline
-	CreatedAt & DateTime? & false & Дата создания \\ \hline
-	UpdatedAt & DateTime? & false & Дата обновления \\ \hline
-	Team & TeamDto & true & Информация о команде \\ \hline
-	TeamRoster & TeamRosterDto & true & Состав команды \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
@@ -765,8 +642,7 @@
 	Prize & int & true & Призовой фонд \\ \hline
 \end{xltabular}
 
-
-\subsubsection{Описание внутренних сущностей сервиса поиска}
+\subsubsection{Описание DTO классов сервиса поиска}
 
 \begin{xltabular}{\textwidth}{|X|X|X|X|}
 	\caption{Свойства класса PlayerSearchDto}\label{table:PlayerSearchDto}\\ \hline
@@ -830,7 +706,7 @@
 	SearchDto> & true & Список турниров \\ \hline
 \end{xltabular}
 
-\subsubsection{Спецификация классов веб-платформы}
+\subsection{Спецификация классов веб-платформы}
 \subsubsection{Спецификация классов сервиса анализа .dem файла}
 
 Класс \texttt{Demo} предназначен для анализа демо-файлов киберспортивной игры Counter-Strike 2. Он содержит данные о игроках, раундах, командах и различных событиях, происходящих в матче. Класс также включает переменные для расчета рейтингов игроков на основе различных статистик.
@@ -935,333 +811,7 @@
 	UpdateTeamStats & public & Обновление статистики команды \\ \hline
 \end{xltabular}
 
-Класс PlayersSheet предназначен для структурирования статистики игроков перед их сохранением в базу данных.
-
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Спецификация полей класса PlayersSheet}\label{table:PlayersSheetFields}\\ \hline
-	\thead{Наименование} & \thead{Область \\ видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:PlayersSheetFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Demo & package & *Analyzer.Demo & Демо-объект \\ \hline
-	first & package & bool & Первый запуск анализа \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса PlayersSheet}\label{table:PlayersSheetMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:PlayersSheetMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Generate & public & Генерация статистики игроков \\ \hline
-\end{xltabular}
-
-Класс \texttt{Team} предназначен для представления данных о командах в киберспортивной игре Counter-Strike 2. Он содержит информацию о названии команды, очках, игроках и различных статистиках, связанных с матчами и раундами.
-
-\begin{xltabular}{\textwidth}{|X|c|c|X|}
-	\caption{Спецификация полей класса Team}\label{table:TeamFields}\\ \hline
-	\thead{Наименование} & \thead{Область \\ видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TeamFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Name & package & string & Название команды \\ \hline
-	Score & package & int & Очки команды \\ \hline
-	ScoreFirstHalf & package & int & Очки команды в первой половине \\ \hline
-	ScoreSecondHalf & package & int & Очки команды во второй половине \\ \hline
-	Players & package & []*Player & Список игроков команды \\ \hline
-	WinMatchCount & package & int & Количество выигранных матчей \\ \hline
-	RoundCount & package & int & Количество раундов \\ \hline
-	WinRoundCtCount & package & int & Количество выигранных раундов за сторону CT \\ \hline
-	LostRoundCtCount & package & int & Количество проигранных раундов за сторону CT \\ \hline
-	WinRoundTCount & package & int & Количество выигранных раундов за сторону T \\ \hline
-	LostRoundTCount & package & int & Количество проигранных раундов за сторону T \\ \hline
-	WinPistolRoundCount & package & int & Количество выигранных пистолетных раундов \\ \hline
-	WinEcoRoundCount & package & int & Количество выигранных эко-раундов \\ \hline
-	WinSemiEco
-	RoundCount & package & int & Количество выигранных полу-эко раундов \\ \hline
-	WinForceBuy
-	RoundCount & package & int & Количество выигранных форс-бай раундов \\ \hline
-	BombPlantedOnACount & package & int & Количество установок бомбы на пленте A \\ \hline
-	BombPlantedOnBCount & package & int & Количество установок бомбы на пленте B \\ \hline
-	UtilityBuy & package & int & Количество закупленных гранат \\ \hline
-	UtilityUse & package & int & Количество использованных гранат \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|c|X|}
-	\caption{Спецификация методов класса Team}\label{table:TeamMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TeamMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	WinCount & public & Возвращает количество выигранных матчей \\ \hline
-	LostCount & public & Возвращает количество проигранных матчей \\ \hline
-	WinRoundCount & public & Возвращает количество выигранных раундов \\ \hline
-	LostRoundCount & public & Возвращает количество проигранных раундов \\ \hline
-	EntryHoldKillCount & public & Возвращает количество фрагов при удержании позиции \\ \hline
-	EntryKillCount & public & Возвращает количество первых фрагов \\ \hline
-	EntryHoldKillWonCount & public & Возвращает количество выигранных фрагов при удержании позиции \\ \hline
-	EntryHoldKillLossCount & public & Возвращает количество проигранных фрагов при удержании позиции \\ \hline
-	RatioEntryHoldKill & public & Возвращает процент выигранных фрагов при удержании позиции \\ \hline
-	EntryKillWonCount & public & Возвращает количество выигранных первых фрагов \\ \hline
-	EntryKillLossCount & public & Возвращает количество проигранных первых фрагов \\ \hline
-	FlashbangThrownCount & public & Возвращает количество брошенных световых гранат \\ \hline
-	HeGrenadeThrownCount & public & Возвращает количество брошенных осколочных гранат \\ \hline
-	SmokeThrownCount & public & Возвращает количество брошенных дымовых гранат \\ \hline
-	MolotovThrownCount & public & Возвращает количество брошенных молотовых \\ \hline
-	IncendiaryThrownCount & public & Возвращает количество брошенных зажигательных гранат \\ \hline
-	DecoyThrownCount & public & Возвращает количество брошенных ложных гранат \\ \hline
-	TradeKillCount & public & Возвращает количество разменов \\ \hline
-	TradeDeathCount & public & Возвращает количество убийств при размене \\ \hline
-	RatioEntryKill & public & Возвращает процент успешных разменов \\ \hline
-	KillCount & public & Возвращает количество убийств \\ \hline
-	AssistCount & public & Возвращает количество помощи \\ \hline
-	DeathCount & public & Возвращает количество смертей \\ \hline
-	BombPlantedCount & public & Возвращает количество установленных бомб \\ \hline
-	BombDefusedCount & public & Возвращает количество обезвреженных бомб \\ \hline
-	BombExplodedCount & public & Возвращает количество взрывов бомбы \\ \hline
-	FiveKillCount & public & Возвращает количество пента-убийств (пять убийств в одном раунде) \\ \hline
-	FourKillCount & public & Возвращает количество квадро-убийств (четыре убийства в одном раунде) \\ \hline
-	ThreeKillCount & public & Возвращает количество трипл-убийств (три убийства в одном раунде) \\ \hline
-	TwoKillCount & public & Возвращает количество дабл-убийств (два убийства в одном раунде) \\ \hline
-	OneKillCount & public & Возвращает количество одиночных убийств \\ \hline
-	JumpKillCount & public & Возвращает количество убийств в прыжке \\ \hline
-	CrouchKillCount & public & Возвращает количество убийств при приседании \\ \hline
-\end{xltabular}
-
-Класс Player предназначен для представления данных об игроках в киберспортивной игре Counter-Strike 2. Он содержит информацию о статистике игрока, таких как количество убийств, смертей, помощи, а также рейтинги и другие показатели.
-
-\begin{xltabular}{\textwidth}{|X|c|X|X|}
-	\caption{Спецификация полей класса Player}\label{table:PlayerFields}\\ \hline
-	\thead{Наименование} & \thead{Область \\ видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:PlayerFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	OneKillCount & package & int & Количество одиночных убийств \\ \hline
-	TwoKillCount & package & int & Количество двойных убийств \\ \hline
-	ThreeKillCount & package & int & Количество тройных убийств \\ \hline
-	FourKillCount & package & int & Количество четырех убийств \\ \hline
-	FiveKillCount & package & int & Количество пяти убийств \\ \hline
-	HeadshotCount & package & int & Количество убийств в голову \\ \hline
-	AssistCount & package & int & Количество помощей \\ \hline
-	DeathCount & package & int & Количество смертей \\ \hline
-	KillCount & package & int & Количество убийств \\ \hline
-	CrouchKillCount & package & int & Количество убийств при приседании \\ \hline
-	JumpKillCount & package & int & Количество убийств в прыжке \\ \hline
-	TeamKillCount & package & int & Количество убийств своих \\ \hline
-	KillThroughSmoke & package & int & Количество убийств через дым \\ \hline
-	RoundMvpCount & package & int & Количество MVP раундов \\ \hline
-	BombPlantedCount & package & int & Количество установок бомбы \\ \hline
-	BombDefusedCount & package & int & Количество разминирований бомбы \\ \hline
-	BombExploded
-	Count & package & int & Количество взрывов бомбы \\ \hline
-	Score & package & int & Очки игрока \\ \hline
-	IsControllingBot & package & bool & Контролирует ли игрок бота \\ \hline
-	IsAlive & package & bool & Жив ли игрок \\ \hline
-	IsConnected & package & bool & Подключен ли игрок \\ \hline
-	Side & package & common.Team & Сторона игрока (T или CT) \\ \hline
-	TeamName & package & string & Название команды \\ \hline
-	SteamId & package & uint64 & Steam ID игрока \\ \hline
-	Name & package & string & Имя игрока \\ \hline
-	HasEntryKill & package & bool & Совершил ли игрок первый фраг \\ \hline
-	HasEntryHoldKill & package & bool & Совершил ли игрок фраг при удержании позиции \\ \hline
-	RatingHltv & package & float64 & Рейтинг HLTV игрока \\ \hline
-	RatingHltv2 & package & float64 & Рейтинг HLTV 2.0 игрока \\ \hline
-	Kast & package & float64 & Показатель KAST \\ \hline
-	Rage & package & int & Уровень ярости \\ \hline
-	EseaRwsPointCount & package & float64 & Количество очков ESEA RWS \\ \hline
-	EseaRws & package & float64 & Рейтинг ESEA RWS \\ \hline
-	ShotCount & package & int & Количество выстрелов \\ \hline
-	HitCount & package & int & Количество попаданий \\ \hline
-	HasBomb & package & bool & Есть ли у игрока бомба \\ \hline
-	IsVacBanned & package & bool & Забанен ли игрок в VAC \\ \hline
-	IsOverwatchBanned & package & bool & Забанен ли игрок в Overwatch \\ \hline
-	RankNumberOld & package & int & Старый номер ранга \\ \hline
-	RankNumberNew & package & int & Новый номер ранга \\ \hline
-	WinCount & package & int & Количество побед \\ \hline
-	TradeKillCount & package & int & Количество убийств на обмене \\ \hline
-	TradeDeathCount & package & int & Количество смертей на обмене \\ \hline
-	FlashbangThrown
-	Count & package & int & Количество брошенных светошумовых гранат \\ \hline
-	SmokeThrownCount & package & int & Количество брошенных дымовых гранат \\ \hline
-	HeGrenadeThrown
-	Count & package & int & Количество брошенных гранат HE \\ \hline
-	MolotovThrown
-	Count & package & int & Количество брошенных коктейлей Молотова \\ \hline
-	IncendiaryThrown
-	Count & package & int & Количество брошенных зажигательных гранат \\ \hline
-	DecoyThrownCount & package & int & Количество брошенных ложных гранат \\ \hline
-	RoundPlayedCount & package & int & Количество сыгранных раундов \\ \hline
-	SuicideCount & package & int & Количество суицидов \\ \hline
-	FlashDurationTemp & package & float32 & Временная продолжительность ослепления \\ \hline
-	EquipementValue
-	Rounds & package & map[int]int & Стоимость экипировки по раундам \\ \hline
-	RoundsMoney
-	Earned & package & map[int]int & Заработанные деньги по раундам \\ \hline
-	TimeDeathRounds & package & map[int]float64 & Время смертей по раундам \\ \hline
-	Kills & package & []KillEvent & Список событий убийств \\ \hline
-	Deaths & package & []KillEvent & Список событий смертей \\ \hline
-	Assists & package & []KillEvent & Список событий помощей \\ \hline
-	EntryKills & package & []EntryKillEvent & Список событий первых убийств \\ \hline
-	EntryHoldKills & package & []EntryHoldKill
-	Event & Список событий убийств при удержании позиции \\ \hline
-	PlayersHurted & package & []*PlayerHurted
-	Event & Список событий ранений игроков \\ \hline
-	Clutches & package & []ClutchEvent & Список событий клэтчей \\ \hline
-	TimeKill & package & []float64 & Время убийств \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса Player}\label{table:PlayerMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:PlayerMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	KillDeathRatio & public & Возвращает соотношение убийств к смертям \\ \hline
-	Accuracy & public & Возвращает точность стрельбы игрока \\ \hline
-	EntryKillWonCount & public & Возвращает количество выигранных первых фрагов \\ \hline
-	EntryKillLossCount & public & Возвращает количество проигранных первых фрагов \\ \hline
-	EntryHoldKillWonCount & public & Возвращает количество выигранных фрагов при удержании позиции \\ \hline
-	EntryHoldKillLossCount & public & Возвращает количество проигранных фрагов при удержании позиции \\ \hline
-	ClutchCount & public & Возвращает общее количество клатчей \\ \hline
-	ClutchLostCount & public & Возвращает количество проигранных клатчей \\ \hline
-	ClutchWonCount & public & Возвращает количество выигранных клатчей \\ \hline
-	Clutch1V1WonCount & public & Возвращает количество выигранных клатчей 1v1 \\ \hline
-	Clutch1V2WonCount & public & Возвращает количество выигранных клатчей 1v2 \\ \hline
-	Clutch1V3WonCount & public & Возвращает количество выигранных клатчей 1v3 \\ \hline
-	Clutch1V4WonCount & public & Возвращает количество выигранных клатчей 1v4 \\ \hline
-	Clutch1V5WonCount & public & Возвращает количество выигранных клатчей 1v5 \\ \hline
-	Clutch1V1LossCount & public & Возвращает количество проигранных клатчей 1v1 \\ \hline
-	Clutch1V2LossCount & public & Возвращает количество проигранных клатчей 1v2 \\ \hline
-	Clutch1V3LossCount & public & Возвращает количество проигранных клатчей 1v3 \\ \hline
-	Clutch1V4LossCount & public & Возвращает количество проигранных клатчей 1v4 \\ \hline
-	Clutch1V5LossCount & public & Возвращает количество проигранных клатчей 1v5 \\ \hline
-	Clutch1V1Count & public & Возвращает общее количество клатчей 1v1 \\ \hline
-	Clutch1V2Count & public & Возвращает общее количество клатчей 1v2 \\ \hline
-	Clutch1V3Count & public & Возвращает общее количество клатчей 1v3 \\ \hline
-	Clutch1V4Count & public & Возвращает общее количество клатчей 1v4 \\ \hline
-	Clutch1V5Count & public & Возвращает общее количество клатчей 1v5 \\ \hline
-	ClutchWonPercent & public & Возвращает процент выигранных клатчей \\ \hline
-	Clutch1V1WonPercent & public & Возвращает процент выигранных клатчей 1v1 \\ \hline
-	Clutch1V2WonPercent & public & Возвращает процент выигранных клатчей 1v2 \\ \hline
-	Clutch1V3WonPercent & public & Возвращает процент выигранных клатчей 1v3 \\ \hline
-	Clutch1V4WonPercent & public & Возвращает процент выигранных клатчей 1v4 \\ \hline
-	Clutch1V5WonPercent & public & Возвращает процент выигранных клатчей 1v5 \\ \hline
-	TotalDamageHealth
-	Count & public & Возвращает общее количество урона по здоровью \\ \hline
-	TotalDamageArmor
-	Count & public & Возвращает общее количество урона по броне \\ \hline
-	TotalDamageHealth
-	ReceivedCount & public & Возвращает общее количество полученного урона по здоровью \\ \hline
-	TotalDamageArmor
-	ReceivedCount & public & Возвращает общее количество полученного урона по броне \\ \hline
-	AverageHealthDamage & public & Возвращает средний урон по здоровью \\ \hline
-	HeadshotPercent & public & Возвращает процент убийств в голову \\ \hline
-	RatioEntryKill & public & Возвращает соотношение первых фрагов \\ \hline
-	RatioEntryHoldKill & public & Возвращает соотношение фрагов при удержании позиции \\ \hline
-	KillPerRound & public & Возвращает количество убийств за раунд \\ \hline
-	AssistPerRound & public & Возвращает количество помощей за раунд \\ \hline
-	DeathPerRound & public & Возвращает количество смертей за раунд \\ \hline
-	TotalTimeDeath & public & Возвращает общее время до смерти \\ \hline
-	AverageTimeDeath & public & Возвращает среднее время до смерти \\ \hline
-	ComputeStats & public & Вычисляет основные статистики игрока \\ \hline
-	ComputeKast & public & Вычисляет показатель KAST игрока \\ \hline
-	HasEventInRound & public & Проверяет наличие события в раунде \\ \hline
-	AverageTimeKill & public & Возвращает среднее время до убийства \\ \hline
-\end{xltabular}
-
 \subsubsection{Спецификация классов сервиса поиска информации о турнирах}
-
-Класс CountryIdsResolver предназначен для разрешения идентификаторов стран в процессе маппинга данных о турнирах.
-
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Спецификация полей класса CountryIdsResolver}\label{table:CountryIdsResolverFields}\\ \hline
-	\thead{Наименование} & \thead{Область \\ видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:CountryIdsResolverFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	\_context & private & Application
-	DbContext & Контекст базы данных для разрешения стран \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса CountryIdsResolver}\label{table:CountryIdsResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:CountryIdsResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает идентификатор страны из DTO турнира \\ \hline
-\end{xltabular}
-
-Класс ApplicationDbContext предназначен для управления доступом к данным базы данных о турнирах и командах.
-
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Спецификация полей класса ApplicationDbContext}\label{table:ApplicationDbContextFields}\\ \hline
-	\thead{Наименование} & \thead{Область \\ видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:ApplicationDbContextFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	Maps & public & DbSet<Map> & Таблица карт \\ \hline
-	Matches & public & DbSet<Match> & Таблица матчей \\ \hline
-	Players & public & DbSet<Player> & Таблица игроков \\ \hline
-	PlayerMetrics & public & DbSet<Player
-	Metric> & Таблица метрик игроков \\ \hline
-	Rounds & public & DbSet<Round> & Таблица раундов \\ \hline
-	Stages & public & DbSet<Stage> & Таблица этапов \\ \hline
-	Teams & public & DbSet<Team> & Таблица команд \\ \hline
-	TeamMetrics & public & DbSet<Team
-	ResultMetric> & Таблица метрик команд \\ \hline
-	TeamNames & public & DbSet<Team
-	Name> & Таблица имен команд \\ \hline
-	Tournaments & public & DbSet
-	<Tournament> & Таблица турниров \\ \hline
-	Countries & public & DbSet<Country> & Таблица стран \\ \hline
-	PlayerStats & public & DbSet<Player
-	Stats> & Таблица статистики игроков \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса ApplicationDbContext}\label{table:ApplicationDbContextMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:ApplicationDbContextMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	OnModelCreating & protected & Настройка моделей базы данных \\ \hline
-	SaveChangesAsync & public & Асинхронное сохранение изменений \\ \hline
-	SaveChanges & public & Сохранение изменений \\ \hline
-\end{xltabular}
-
-Класс EntityMapper предназначен для маппинга DTO объектов на модели базы данных.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса EntityMapper}\label{table:EntityMapperMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:EntityMapperMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	EntityMapper & public & Настройка профилей маппинга \\ \hline
-\end{xltabular}
 
 Класс BackgroundServiceController предназначен для управления запуском и остановкой фоновых сервисов обновления данных о командах, турнирах и матчах.
 
@@ -1296,109 +846,6 @@
 	StartMatchUpdateService & public & Запускает фоновый сервис обновления матчей \\ \hline
 	StopService & public & Останавливает указанный фоновый сервис \\ \hline
 	StartService & private & Запускает указанный фоновый сервис с предоставленной функцией работы \\ \hline
-\end{xltabular}
-
-Класс TierResolver предназначен для разрешения уровня турнира из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса TierResolver}\label{table:TierResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TierResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает уровень турнира из DTO \\ \hline
-\end{xltabular}
-
-Класс EventTypeResolver предназначен для разрешения типа события турнира из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса EventTypeResolver}\label{table:EventTypeResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:EventTypeResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает тип события турнира из DTO \\ \hline
-\end{xltabular}
-
-Класс StageTypeResolver предназначен для разрешения типа этапа турнира из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса StageTypeResolver}\label{table:StageTypeResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:StageTypeResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает тип этапа турнира из DTO \\ \hline
-\end{xltabular}
-
-Класс ParsedStatusResolver предназначен для разрешения статуса матча из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса ParsedStatusResolver}\label{table:ParsedStatusResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:ParsedStatusResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает статус матча из DTO \\ \hline
-\end{xltabular}
-
-Класс TeamIdsResolver предназначен для разрешения идентификаторов команд в процессе маппинга данных о стадиях турнира.
-
-\begin{xltabular}{\textwidth}{|X|X|X|X|}
-	\caption{Спецификация полей класса TeamIdsResolver}\label{table:TeamIdsResolverFields}\\ \hline
-	\thead{Наименование} & \thead{Область видимости} & \thead{Тип данных} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TeamIdsResolverFields}} \hline
-	\thead{1} & \thead{2} & \thead{3} & \thead{4} \\ \hline
-	\endhead
-	\_context & private & ApplicationDb
-	Context & Контекст базы данных для разрешения команд \\ \hline
-\end{xltabular}
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса TeamIdsResolver}\label{table:TeamIdsResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:TeamIdsResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает идентификаторы команд из DTO этапа \\ \hline
-\end{xltabular}
-
-Класс MatchStatusResolver предназначен для разрешения статуса матча из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса MatchStatusResolver}\label{table:MatchStatusResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:MatchStatusResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает статус матча из DTO \\ \hline
-\end{xltabular}
-
-Класс StatusResolver предназначен для разрешения статуса турнира из DTO.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Спецификация методов класса StatusResolver}\label{table:StatusResolverMethods}\\ \hline
-	\thead{Наименование} & \thead{Метод доступа} & \thead{Описание} \\ \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{table:StatusResolverMethods}} \hline
-	\thead{1} & \thead{2} & \thead{3} \\ \hline
-	\endhead
-	Resolve & public & Разрешает статус турнира из DTO \\ \hline
 \end{xltabular}
 
 Класс HttpClientHelper предназначен для конфигурации HTTP-клиента с необходимыми заголовками.
